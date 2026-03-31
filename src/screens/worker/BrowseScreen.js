@@ -94,10 +94,10 @@ export default function BrowseScreen({ navigation }) {
       <Text style={styles.cardLocation}>
         📍 {[item.suburb, item.city, item.province].filter(Boolean).join(', ')}
       </Text>
-      <Text style={styles.cardDate}>
-        📅 {item.scheduled_date}
-        {item.duration_hours ? ` · ⏱ ${item.duration_hours}h` : ''}
-      </Text>
+      <Text style={styles.cardDate} numberOfLines={1}>
+  📅 {item.scheduled_date}
+  {item.duration_hours ? ` · ⏱ ${item.duration_hours}h` : ''}
+</Text>
       {item.description ? (
         <Text style={styles.cardDescription} numberOfLines={2}>
           {item.description}
@@ -362,7 +362,7 @@ const styles = StyleSheet.create({
   cardCategory: { fontSize: fonts.medium, fontWeight: '700', color: colors.text },
   cardBudget: { fontSize: fonts.large, fontWeight: 'bold', color: colors.primary },
   cardLocation: { fontSize: fonts.body, color: colors.textMuted, marginBottom: spacing.xs },
-  cardDate: { fontSize: fonts.small, color: colors.textMuted, marginBottom: spacing.xs },
+  cardDate: { fontSize: fonts.small, color: colors.textMuted, marginBottom: spacing.xs, flexShrink: 1 },
   cardDescription: {
     fontSize: fonts.body,
     color: colors.textMuted,

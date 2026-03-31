@@ -90,7 +90,9 @@ export default function JobDetailScreen({ navigation, route }) {
             <View style={styles.detailItem}>
               <Text style={styles.detailIcon}>📅</Text>
               <Text style={styles.detailLabel}>Date</Text>
-              <Text style={styles.detailValue}>{job.scheduled_date || '—'}</Text>
+              <Text style={styles.detailValue} numberOfLines={1} adjustsFontSizeToFit>
+  {job.scheduled_date || '—'}
+</Text>
             </View>
             <View style={styles.detailItem}>
               <Text style={[styles.detailIcon, { color: colors.primary }]}>⏱</Text>
