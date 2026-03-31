@@ -53,7 +53,7 @@ export default function WelcomeScreen({ navigation }) {
               <Text style={styles.roleEmoji}>📋</Text>
             </View>
             <Text style={styles.roleTitle}>Employer</Text>
-            <Text style={styles.roleDesc}>I need{'\n'}someone hired</Text>
+            <Text style={styles.roleDesc}>I need to{'\n'} hire someone</Text>
             <View style={styles.roleButton}>
               <Text style={styles.roleButtonText}>Post a Job</Text>
             </View>
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: '50%',
-    height: 60,
+    height: 150,
     marginBottom: spacing.sm,
   },
   tagline: {

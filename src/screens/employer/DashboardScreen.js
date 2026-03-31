@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity,
   FlatList, Alert, ActivityIndicator,
-  RefreshControl, Image, Share
+  RefreshControl, Image, Share, Modal
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
@@ -12,12 +12,14 @@ import { authService } from '../../utils/authService';
 import { storageService } from '../../utils/storageService';
 import { jobService } from '../../utils/jobService';
 import { JOB_CATEGORIES } from '../../constants/jobs';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function DashboardScreen({ navigation }) {
   const { user, profile } = useAuth();
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   useFocusEffect(
     useCallback(() => {
@@ -50,7 +52,7 @@ export default function DashboardScreen({ navigation }) {
       message:
         `💼 Looking for casual workers in South Africa?\n\n` +
         `Download Cazzijobz and post a job today — it's free!\n\n` +
-        `👉 https://cazzijobz.com`,
+        `👉 https://drive.google.com/file/d/1LN-GyGEkd6pZwNZf9-SOga4o74V9xqz4/view?usp=drive_link`,
     });
   };
 
@@ -181,8 +183,12 @@ export default function DashboardScreen({ navigation }) {
           }
         </TouchableOpacity>
         <TouchableOpacity onPress={handleShareApp} style={styles.shareBtn}>
-          <Text style={styles.shareBtnText}>📤</Text>
-        </TouchableOpacity>
+  <MaterialCommunityIcons 
+    name="share-variant" 
+    size={24} 
+    color={colors.white} 
+  />
+</TouchableOpacity>
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
           <Text style={styles.signOutText}>Sign Out</Text>
         </TouchableOpacity>

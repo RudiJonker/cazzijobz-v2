@@ -6,7 +6,7 @@ export default function SplashScreen({ navigation }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.replace('Welcome');
-    }, 2000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -17,7 +17,7 @@ export default function SplashScreen({ navigation }) {
         style={styles.logo}
         resizeMode="contain"
       />
-      <Text style={styles.tagline}>Casual jobs. Simple.</Text>
+      <Text style={styles.tagline}>Casual jobs. Fast!</Text>
     </View>
   );
 }
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   tagline: {
     fontSize: fonts.body,
-    color: colors.primaryMid,
+    color: colors.primaryDark,
     marginTop: spacing.sm,
     letterSpacing: 1,
   },

@@ -13,6 +13,7 @@ import { storageService } from '../../utils/storageService';
 import { jobService } from '../../utils/jobService';
 import { JOB_CATEGORIES } from '../../constants/jobs';
 import CityAutocomplete from '../../components/common/CityAutocomplete';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function BrowseScreen({ navigation }) {
   const { user, profile } = useAuth();
@@ -57,7 +58,7 @@ export default function BrowseScreen({ navigation }) {
       message:
         `💼 Looking for casual work in South Africa?\n\n` +
         `Download Cazzijobz and find work near you today — it's free!\n\n` +
-        `👉 https://cazzijobz.com`,
+        `👉 https://drive.google.com/file/d/1LN-GyGEkd6pZwNZf9-SOga4o74V9xqz4/view?usp=drive_link`,
     });
   };
 
@@ -125,8 +126,12 @@ export default function BrowseScreen({ navigation }) {
           }
         </TouchableOpacity>
         <TouchableOpacity onPress={handleShareApp} style={styles.shareBtn}>
-          <Text style={styles.shareBtnText}>📤</Text>
-        </TouchableOpacity>
+  <MaterialCommunityIcons 
+    name="share-variant" 
+    size={24} 
+    color={colors.white} 
+  />
+</TouchableOpacity>
         <TouchableOpacity onPress={handleSignOut} style={styles.signOutBtn}>
           <Text style={styles.signOutText}>Sign Out</Text>
         </TouchableOpacity>
@@ -309,16 +314,18 @@ const styles = StyleSheet.create({
   searchInputWrapper: { flex: 1, zIndex: 10 },
   infoBtn: { padding: spacing.sm },
   categoryScrollView: {
-    backgroundColor: colors.surface,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    maxHeight: 48,
-  },
+  backgroundColor: colors.surface,
+  borderBottomWidth: 1,
+  borderBottomColor: colors.border,
+  flexGrow: 0,
+  height: 52,
+},
   categoryScrollContent: {
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
     gap: spacing.sm,
     alignItems: 'center',
+    flexDirection: 'row',
   },
   categoryChip: {
     borderWidth: 1,
